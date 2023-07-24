@@ -1,0 +1,22 @@
+// algorithm to insert an element in the max heap.  
+insertHeap(A, n, value)  
+{  
+n=n+1; // n is incremented to insert the new element  
+A[n]=value; // assign new value at the nth position  
+i = n; // assign the value of n to i  
+// loop will be executed until i becomes 1.   
+while(i>1)   
+{  
+parent= floor value of i/2; // Calculating the floor value of i/2  
+// Condition to check whether the value of parent is less than the given node or not   
+if(A[parent]<A[i])   
+{  
+swap(A[parent], A[i]);  
+i = parent;  
+}  
+else  
+{  
+return;  
+}  
+}  
+}  
