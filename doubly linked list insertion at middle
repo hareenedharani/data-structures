@@ -1,0 +1,40 @@
+void InsertAtMid (Node **head){
+    int num = 0;
+    int count = 0
+    int advance = 0;
+    Node *ptr = *head;
+    Node *newnode = NULL;
+
+    printf("Enter node to be inserted: ");
+    scanf("%d", &num);
+
+    if (*head == NULL) {
+      *head = (Node *)malloc(sizeof(Node));
+      ptr = *head;
+      ptr->x = num;
+      ptr->next = NULL;
+      ptr->prev = NULL;
+    } else {
+      // *** Count the number of items
+      ptr = *head;
+      while (ptr != NULL) {
+         ptr = ptr->next;
+         count++;
+      }
+
+      // *** Move to the middle of the list
+      ptr = *head;
+      while (advance < (count/2)){
+         ptr = ptr->next;
+         advance++;
+      }
+
+      // *** Insert the new value
+      newnode = (Node *)malloc(sizeof(Node));
+      newnode->x = num;
+      newnode->next = ptr->next;
+      newnode->prev = ptr;
+      ptr->next->prev = newnode;
+      ptr->next = newnode;
+   }
+}
